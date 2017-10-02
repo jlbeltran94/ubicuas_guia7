@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Inventory</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{{ url_for('static',filename='css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{ url_for('static',filename='css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><img id="logo-container" href="#" src="{{ url_for('static',filename='images/logo.png') }}"  height="65" width="100" class="brand-logo"></img>
+      <ul class="right hide-on-med-and-down">
+        <li><a  href="#!">Date</a></li>
+        <li><a  href="#!">Name</a></li>
+        <li><a  href="#!">Last event</a></li>
+        <li><a  href="#!">Presents</a></li>
+        <li><a  href="#!">Missing</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a  href="#!">Date</a></li>
+        <li><a  href="#!">Name</a></li>
+        <li><a  href="#!">Last event</a></li>
+        <li><a  href="#!">Presents</a></li>
+        <li><a  href="#!">Missing</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Inventory</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Inventory with Beacons Unicauca</h5>
+      </div>
+      <div class="row center">
+        
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><img src="{{ url_for('static',filename='images/beacon.png') }}" width="50" height="50"></img></h2>
+            <h5 class="center">machine name</h5>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><img src="{{ url_for('static',filename='images/exit.png') }}" width="50" height="50"></img></h2>
+            <h5 class="center">Event</h5>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><img src="{{ url_for('static',filename='images/calendar.png') }}" width="50" height="50"></img></h2>
+            <h5 class="center">Date</h5>
+          </div>
+        </div>
+      </div>
+      {% for event in events %}
+      <div class="row">
+        <div class="col s12 m4 center">
+          {{event.name}}
+        </div>
+        <div class="col s12 m4 center">
+          {{event.event}}
+        </div>
+        <div class="col s12 m4 center">
+          {{event.date}}
+        </div>
+
+      </div>
+      {% endfor %}
+
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Universidad del Cauca</h5>
+          <p class="grey-text text-lighten-4">Making the guide 7</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Filters</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Date</a></li>
+            <li><a class="white-text" href="#!">Name</a></li>
+            <li><a class="white-text" href="#!">Last event</a></li>
+            <li><a class="white-text" href="#!">Presents</a></li>
+            <li><a class="white-text" href="#!">Missing</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{{ url_for('static',filename='js/materialize.js') }}"></script>
+  <script src="{{ url_for('static',filename='js/init.js') }}"></script>
+
+  </body>
+</html>
